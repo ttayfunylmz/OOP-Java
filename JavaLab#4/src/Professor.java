@@ -12,7 +12,7 @@ public class Professor extends Person {
     }
 
     public void setProfessorNumber(String professorNumber) {
-        this.laptop = new Laptop();
+        this.proffessorNumber = professorNumber;
     }
 
     public Laptop getLaptop() {
