@@ -14,12 +14,14 @@ public class Main {
         // Run UI in the Event Dispatcher Thread (EDT), instead of Main thread
         //javax.swing.SwingUtilities.invokeLater(new Runnable() {
         //   public void run() {
-        JFrame frame = new JFrame("A World of Balls");
+        JFrame frame = new JFrame("Tayfun's World of Balls");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setContentPane(new BallWorld(640, 480)); // BallWorld is a JPanel
         frame.pack();            // Preferred size of BallWorld
         frame.setVisible(true);  // Show it
         //}
         //});
+
+
     }
 }

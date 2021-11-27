@@ -23,10 +23,16 @@ public class BallWorld extends JPanel {
 
     // The container rectangular box
 
+
+
+
     private static Random generator = new Random();
     private static int ballCount = generator.nextInt(50);
-    private Ball balls[] = new Ball[ballCount];
+    private Ball balls[] = new Ball[ballCount+3];
     private int i;
+    private int circleNumber;
+    private int squareNumber;
+    private int ellipseNumber;
 
     private ContainerBox box;
     private DrawCanvas canvas; // Custom canvas for drawing the box/ball
@@ -104,16 +110,34 @@ public class BallWorld extends JPanel {
             if (shape == 1) {
                 Ball ball = new Ball(ballX, ballY, ballRadius, speed, angleInDegree, Color.cyan);
                 balls[i] = ball;
+                circleNumber++;
             }else if (shape == 2) {
                 Ball ball = new Square(squareX, squareY, squareWidth, speed, angleInDegree, Color.red);
                 balls[i] = ball;
+                squareNumber++;
             }else {
                 Ball ball = new Ellipse(ellipseX, ellipseY, ellipseRadius, speed, angleInDegree, Color.white);
                 balls[i] = ball;
+                ellipseNumber++;
+            }
+
+            if (i==ballCount-1){
+            Ball ball = new Ball(ballX, ballY, ballRadius, speed, angleInDegree, Color.cyan);
+            balls[i+1] = ball;
+
+            Ball ball2 = new Square(squareX, squareY, squareWidth, speed, angleInDegree, Color.red);
+            balls[i+2] = ball2;
+
+            Ball ball3 = new Ellipse(ellipseX, ellipseY, ellipseRadius, speed, angleInDegree, Color.white);
+            balls[i+3] = ball3;
+
             }
         }
 
-
+        System.out.println("Number of total balls : " + ballCount);
+        System.out.println("Number of circles : " + circleNumber);
+        System.out.println("Number of squares : " + squareNumber);
+        System.out.println("Number of ellipses : " + ellipseNumber);
 
         // Init the Container Box to fill the screen
         box = new ContainerBox(0, 0, canvasWidth, canvasHeight, Color.black, Color.WHITE);
